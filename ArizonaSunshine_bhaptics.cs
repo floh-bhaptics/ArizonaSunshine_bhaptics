@@ -82,6 +82,12 @@ namespace ArizonaSunshine_bhaptics
                 Transform playerPosition = __instance.Transform;
                 Quaternion playerRotation = __instance.BaseRotation;
                 var angleShift = getAngleAndShift(playerPosition, hitPosition, playerRotation);
+                if (zombie.Locomotion.IsCrawling)
+                {
+                    tactsuitVr.PlaybackHaptics("ExplosionFeet");
+                    tactsuitVr.PlayBackHit("Slash", angleShift.Key, -0.5f);
+                    return;
+                }
                 tactsuitVr.PlayBackHit("Slash", angleShift.Key, angleShift.Value);
 
             }
