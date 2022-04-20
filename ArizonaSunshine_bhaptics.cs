@@ -14,6 +14,7 @@ namespace ArizonaSunshine_bhaptics
     public class ArizonaSunshine_bhaptics : MelonMod
     {
         public static TactsuitVR tactsuitVr;
+        public static bool footStepRight = true;
 
         public override void OnApplicationStart()
         {
@@ -110,6 +111,18 @@ namespace ArizonaSunshine_bhaptics
             }
         }
 
+        [HarmonyPatch(typeof(SlidingLocomotionController), "PlayFootstepAudio", new Type[] { typeof(Vector3), typeof(bool) })]
+        public class bhaptics_PlayerFootstep
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                if (footStepRight) tactsuitVr.PlaybackHaptics("FootStep_R");
+                else tactsuitVr.PlaybackHaptics("FootStep_L");
+                footStepRight = !footStepRight;
+            }
+        }
+
         [HarmonyPatch(typeof(ExplosiveItem), "Explode", new Type[] { })]
         public class bhaptics_ExplodeItem
         {
@@ -117,6 +130,7 @@ namespace ArizonaSunshine_bhaptics
             public static void Postfix()
             {
                 tactsuitVr.PlaybackHaptics("ExplosionBelly");
+                tactsuitVr.PlaybackHaptics("ExplosionFeet");
             }
         }
 
@@ -127,6 +141,7 @@ namespace ArizonaSunshine_bhaptics
             public static void Postfix()
             {
                 tactsuitVr.PlaybackHaptics("ExplosionBelly");
+                tactsuitVr.PlaybackHaptics("ExplosionFeet");
             }
         }
 
@@ -137,6 +152,7 @@ namespace ArizonaSunshine_bhaptics
             public static void Postfix()
             {
                 tactsuitVr.PlaybackHaptics("ExplosionBelly");
+                tactsuitVr.PlaybackHaptics("ExplosionFeet");
             }
         }
 
