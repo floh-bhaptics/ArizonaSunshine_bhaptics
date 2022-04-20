@@ -51,7 +51,7 @@ namespace ArizonaSunshine_bhaptics
             // and the torso ends at roughly -0.5 (that's in meters)
             // so cap the shift to [-0.5, 0]...
             float hitShift = hitPosition.y;
-            tactsuitVr.LOG("HitShift: " + hitShift);
+            //tactsuitVr.LOG("HitShift: " + hitShift);
             float upperBound = 0.5f;
             float lowerBound = -0.5f;
             if (hitShift > upperBound) { hitShift = 0.5f; }
