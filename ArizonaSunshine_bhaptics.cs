@@ -80,7 +80,8 @@ namespace ArizonaSunshine_bhaptics
                 //tactsuitVr.LOG("PlayerPosition: " + __instance.BasePosition.x.ToString() + " " + __instance.BasePosition.y.ToString() + " " + __instance.BasePosition.z.ToString());
                 Vector3 hitPosition = zombie.Position;
                 Transform playerPosition = __instance.Transform;
-                Quaternion playerRotation = __instance.BaseRotation;
+                //Quaternion playerRotation = __instance.BaseRotation;
+                Quaternion playerRotation = __instance.HeadRotation;
                 var angleShift = getAngleAndShift(playerPosition, hitPosition, playerRotation);
                 if (zombie.Locomotion.IsCrawling)
                 {
