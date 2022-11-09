@@ -80,9 +80,9 @@ namespace ArizonaSunshine_bhaptics
                 //tactsuitVr.LOG("PlayerPosition: " + __instance.BasePosition.x.ToString() + " " + __instance.BasePosition.y.ToString() + " " + __instance.BasePosition.z.ToString());
                 Vector3 hitPosition = zombie.Position;
                 Transform playerPosition = __instance.Transform;
-                //Quaternion playerRotation = __instance.BaseRotation;
-                Quaternion playerRotation = __instance.HeadRotation;
-                var angleShift = getAngleAndShift(playerPosition, hitPosition, playerRotation);
+                Quaternion playerRotation = __instance.BaseRotation;
+                Quaternion headRotation = __instance.HeadRotation;
+                var angleShift = getAngleAndShift(playerPosition, hitPosition, playerRotation*headRotation);
                 if (zombie.Locomotion.IsCrawling)
                 {
                     tactsuitVr.PlaybackHaptics("ExplosionFeet");
@@ -103,6 +103,7 @@ namespace ArizonaSunshine_bhaptics
                 if (!__result) return;
                 bool twoHanded = (__instance.IsTwoHanded && __instance.IsTwoHandedOffHandAttached);
                 bool isRight = (__instance.EquipmentSlot.SlotID == E_EQUIPMENT_SLOT_ID.RIGHT_HAND);
+                tactsuitVr.LOG("HandPoseName: " + __instance.HandPoseName + " " + __instance.OffHandHandPoseName + " " + __instance.EquipmentSlot.SlotID.ToString());
                 tactsuitVr.Recoil("Pistol", isRight, twoHanded);
             }
         }
