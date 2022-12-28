@@ -26,6 +26,10 @@
       <HintPath>D:\Games\Steam\steamapps\common\ArizonaSunshine\ArizonaSunshine_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="bHapticsLib">
+      <HintPath>D:\Games\Steam\steamapps\common\ArizonaSunshine\MelonLoader\net6\bHapticsLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MelonLoader">
       <HintPath>D:\Games\Steam\steamapps\common\ArizonaSunshine\MelonLoader\net6\MelonLoader.dll</HintPath>
       <Private>False</Private>
