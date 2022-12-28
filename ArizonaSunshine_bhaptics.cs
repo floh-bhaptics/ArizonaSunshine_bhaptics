@@ -9,14 +9,11 @@ using HarmonyLib;
 using MyBhapticsTactsuit;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(ArizonaSunshine_bhaptics.ArizonaSunshine_bhaptics), "ArizonaSunshine_bhaptics", "1.2.1", "Florian Fahrenberger")]
-[assembly: MelonGame("Vertigo Games", "ArizonaSunshine")]
-
 namespace ArizonaSunshine_bhaptics
 {
     public class ArizonaSunshine_bhaptics : MelonMod
     {
-        public static TactsuitVR tactsuitVr = null!;
+        public static TactsuitVR tactsuitVr;
         public static bool footStepRight = true;
 
         public override void OnInitializeMelon()
