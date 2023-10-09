@@ -104,7 +104,6 @@ namespace ArizonaSunshine_bhaptics
                 if (!__instance.IsControlledLocally) return;
                 bool twoHanded = (__instance.IsTwoHanded && __instance.IsTwoHandedOffHandAttached);
                 bool isRight = (__instance.EquipmentSlot.SlotID == E_EQUIPMENT_SLOT_ID.RIGHT_HAND);
-                tactsuitVr.LOG("HandPoseName: " + __instance.HandPoseName + " " + __instance.OffHandHandPoseName + " " + __instance.EquipmentSlot.SlotID.ToString());
                 tactsuitVr.Recoil("Pistol", isRight, twoHanded);
             }
         }
